@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: com.google.code.gson:gson:2.8.2">
+    <archive path="C:/Users/Vuk/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar" />
+  </library>
+  <library name="Maven: commons-codec:commons-codec:1.10">
+    <archive path="C:/Users/Vuk/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar" />
+  </library>
+  <library name="Maven: commons-logging:commons-logging:1.2">
+    <archive path="C:/Users/Vuk/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" />
+  </library>
+  <library name="Maven: org.apache.httpcomponents:httpclient:4.5.6">
+    <archive path="C:/Users/Vuk/.m2/repository/org/apache/httpcomponents/httpclient/4.5.6/httpclient-4.5.6.jar" />
+  </library>
+  <library name="Maven: org.apache.httpcomponents:httpcore:4.4.10">
+    <archive path="C:/Users/Vuk/.m2/repository/org/apache/httpcomponents/httpcore/4.4.10/httpcore-4.4.10.jar" />
+  </library>
+  <library name="Maven: org.jsoup:jsoup:1.8.3">
+    <archive path="C:/Users/Vuk/.m2/repository/org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar" />
+  </library>
+  <library name="Maven: info.picocli:picocli:3.7.0">
+    <archive path="C:/Users/Vuk/.m2/repository/info/picocli/picocli/3.7.0/picocli-3.7.0.jar" />
+  </library>
+</eclipse-userlibraries>
+
