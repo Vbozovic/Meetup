@@ -72,6 +72,11 @@ public class MeetupApi {
         T toReturn = null;
         final CloseableHttpClient httpclient = HttpClients.createDefault();
         final HttpRequestBase request = getReq(reqType);
+
+        if(request == null){
+            //throw exception ???
+        }
+
         try {
             CloseableHttpResponse response = httpclient.execute(request);
 
@@ -83,7 +88,6 @@ public class MeetupApi {
                 toReturn = handler.responseHandler(response);
             }else{
                 //throw an exception ???
-
             }
             //close all the resources
             response.close();

@@ -1,6 +1,7 @@
-package app.meetup;
+package app.handlers;
 
 import app.entities.Event;
+import app.meetup.ResponseHandler;
 import app.responses.EventLookupResponse;
 import com.google.gson.Gson;
 import org.apache.http.client.methods.CloseableHttpResponse;

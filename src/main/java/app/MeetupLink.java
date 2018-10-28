@@ -1,10 +1,9 @@
 package app;
 
-import app.display.Display;
 import app.entities.City;
 import app.entities.Event;
 import app.handlers.CityHandler;
-import app.meetup.EventsHandler;
+import app.handlers.EventsHandler;
 import app.meetup.MeetupApi;
 import app.meetup.RType;
 import org.apache.http.client.utils.URIBuilder;
