@@ -5,4 +5,4 @@ The development environment used in this project is InteliJ, although i have exp
 
 The project is tested by running the Main class.
 
-My e-mail is "vbozovic14@yahoo.com"
+My e-mail is "vbozovic14@yahoo.com" or "kurjak9595@gmail.com"
