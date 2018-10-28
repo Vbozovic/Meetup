@@ -19,12 +19,19 @@ import java.net.URISyntaxException;
 
 public class MeetupApi {
 
-    private static String API_KEY = "2a70ef7625447c376d52273671d51";
-
-    private URI uri;
+    private String API_KEY;
+    private URI uri = null;
 
     public MeetupApi(URIBuilder uri) {
-        uri.addParameter("key", API_KEY);
+        this("2a70ef7625447c376d52273671d51", uri);
+    }
+
+    public MeetupApi(String key, URIBuilder uri) {
+        this.API_KEY = key;
+        uri.addParameter("key", key);
+        uri.addParameter("sign","true");
+        uri.setScheme("https");
+        uri.setHost("api.meetup.com");
         try {
             this.uri = uri.build();
         } catch (URISyntaxException e) {
@@ -32,7 +39,6 @@ public class MeetupApi {
             e.printStackTrace();
         }
     }
-
 
     private HttpRequestBase getReq(final RType type) {
         switch (type) {
@@ -60,40 +66,28 @@ public class MeetupApi {
 
     public <T> T request(final ResponseHandler<? extends T> handler, final RType reqType) {
 
-        if (uri == null) {
+        if (uri == null || reqType == null) {
             return null;
         }
-
         T toReturn = null;
-
         final CloseableHttpClient httpclient = HttpClients.createDefault();
-
         final HttpRequestBase request = getReq(reqType);
-
         try {
             CloseableHttpResponse response = httpclient.execute(request);
 
             StatusLine line = response.getStatusLine();
 
-            //checking if everything
+            //only if response status is OK we forward to handler
             if (line.getStatusCode() == 200) {
+                //forwarding to handler
+                toReturn = handler.responseHandler(response);
+            }else{
+                //throw an exception ???
 
-                HttpEntity entity = response.getEntity();
-                BufferedReader iStream = new BufferedReader(new InputStreamReader(entity.getContent()));
-                StringBuilder bldr = new StringBuilder();
-
-                //in case new lines are present in response
-                while (iStream.ready()) {
-                    bldr.append(iStream.readLine());
-                }
-
-                toReturn = handler.responseHandler(bldr.toString());
-
-                //close all the resources
-                iStream.close();
-                response.close();
-                httpclient.close();
             }
+            //close all the resources
+            response.close();
+            httpclient.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,5 +97,9 @@ public class MeetupApi {
 
     public void setUri(URI uri) {
         this.uri = uri;
+    }
+
+    public void setAPI_KEY(String API_KEY) {
+        this.API_KEY = API_KEY;
     }
 }
